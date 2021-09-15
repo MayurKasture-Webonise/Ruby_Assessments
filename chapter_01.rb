@@ -12,11 +12,11 @@ def sum_of_cubes(a, b)
         	c = i ** 3
         	temp += c
     	end
-     	return temp
+     	puts temp
 end
 
-sum = sum_of_cubes(1, 3)
-puts sum
+sum_of_cubes(1, 3)
+
 '''
 
 
@@ -25,30 +25,39 @@ puts sum
 #      non_duplicated_values to accomplish this task. Example : Given [1,2,2,3,3,4,5], the method should return [1,4,5].  
 # Answer -->
 
-'''
-def non_duplicated_values(list)
-  list.find_all { |i| list.count(i) == 1 }
+''' 		
+def non_duplicated_values()
+
+  	elementsArr = Array.new;
+	puts "Enter 5 elements";
+
+	for i in 1..5 do
+	   elementsArr.push(gets.chomp.to_i)
+	end
+	
+  	elementsArr.find_all { |i| elementsArr.count(i) == 1 }
 end
 
-result = non_duplicated_values([1,2,2,3,3,4,5])
-puts result
-'''
+result = non_duplicated_values()
+puts "Non Duplicate Elements are :";
+puts result;
+ 	
+''' 	
 
 
 
 # Q.3)  Given a sentence,return true if the sentence is a palindrome.You are supposed to write a method palindrome?to accomplish the task.
 # Answer -->
 
-''' 	
+'''	
 def check_palindrome(input_str)
 	r_space = input_str.delete(' ')
 	str = r_space.upcase
-  	return str.eql? str.reverse
+  	puts str.eql? str.reverse
 end
 
 input = "Never odd or even"
-result = check_palindrome(input)
-puts result
+check_palindrome(input)
 '''
 
 
@@ -120,19 +129,19 @@ find_position(string1, "RUBY")
 # Answer -->
 
 '''
-$arr = string1.split(" ")
-$len = $arr.length
-i=0
-def str_recurse(i)
-	
-	if(i<$len)
-		puts $arr[i]
-		task(i+1)
+def str_recurse(i,string1)
+	arr = string1.split(" ")
+	len = arr.length
+	if(i<len)
+		puts arr[i]
+		str_recurse(i+1,string1)
 	else
 		return 0
 	end
 end
-str_recurse(i)
+
+i=0
+str_recurse(i,string1)
 '''
 
 
@@ -142,13 +151,7 @@ str_recurse(i)
 
 '''
 def str_capitalise(string1)
-	str = string1.split(". ")
-	new_str =""
-	for i in str 
-		temp = i.capitalize()
-		new_str = new_str + temp + ". "
-	end	
-	puts new_str
+	puts string1.capitalize()
 end
 
 str_capitalise(string1)
@@ -255,17 +258,16 @@ puts remove_html(string1)
 # Q.16) Print the 'RUBY' word from string 1 by traversing it using string functions.
 # Answer -->
 
-'''
+"""
 def str_travers(string1)
-	arr= string1.split(" ")
-	arr.each do |word|
-		if word.eql? "RUBY"
+	string1.scan(/[\w']+/) do |word| 
+	 	if word.eql? 'RUBY'
 			puts word
-		end
-	end
+	 	end
+	 end
 end
 str_travers(string1)
-'''
+"""
 
 
 
@@ -335,23 +337,15 @@ def str_travers(arr)
 	count=0
 	i = 2
 	for num in arr
-		while(i<num)
-			if (num%i==0)
-				count+=1
-			end
-			i+=1
-		end
-	
-	
-		if count>1
-			puts "#{num} is not a prime number"
-		else
-			puts "#{num} is a prime number"
-		end
+		 if Prime.prime?(num)
+		   	puts "#{num} is a prime number"
+		 else
+		  	puts "#{num} is a not prime number"
+		 end
+		 
 	end
 end
-
-str_travers([2, 3, 5, 7])
+str_travers([2, 3, 5, 1])
 '''
 
 
@@ -381,6 +375,34 @@ def check_fual(i)
 	if i==50
 		return "Full"
 	end
+end
+
+puts check_fual(50)
+'''
+
+
+'''
+def check_fual(i)
+
+	case i
+	
+		when 0
+			puts "Out of fuel"
+			
+		when 1..10
+			puts "Low, Please fill"
+			
+		when 11..30
+			puts "Good for now"
+			
+		when 31..50
+			puts "Almost Full"
+			
+		when 50
+			puts "Full"
+		else
+    			puts "Invalid"	
+	end		
 end
 
 puts check_fual(50)
@@ -438,8 +460,8 @@ vowels("Welcome to webonise!")
 
 '''
 def hash_sort()
-	my_hash = Hash["one" => 1, "four" => 4, "three" => 3, "two" => 2, ]
-	puts "#{my_hash.values.sort}" 
+	hash = {"one" => 1, "four" => 4, "three" => 3, "two" => 2}
+	puts hash.sort_by(&:last)
 end
 
 hash_sort()
@@ -454,13 +476,8 @@ hash_sort()
 def combined_hash()
 	key = ["one", "two"]
 	value = ["a", "b"]
-	hash = {}
-	i = 0
-	key.each do |k|
-		hash[k] = value[i]
-		i+=1
-	end
-	return hash
+	puts Hash[key.zip(value)]
 end
-puts combined_hash()
+combined_hash()
 '''
+
