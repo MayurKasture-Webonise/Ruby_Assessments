@@ -40,8 +40,7 @@ end
 
 result = non_duplicated_values()
 puts "Non Duplicate Elements are :";
-puts result;
- 	
+puts result; 	
 ''' 	
 
 
@@ -49,17 +48,18 @@ puts result;
 # Q.3)  Given a sentence,return true if the sentence is a palindrome.You are supposed to write a method palindrome?to accomplish the task.
 # Answer -->
 
-'''	
-def check_palindrome(input_str)
-	r_space = input_str.delete(' ')
-	str = r_space.upcase
-  	puts str.eql? str.reverse
+'''
+def check_palindrome(word)
+   	 x=word.reverse
+    	if word == x
+       	 puts "word is palindrome"
+    	else
+       	 puts"word is not palindrome"
+    	end
 end
 
-input = "Never odd or even"
-check_palindrome(input)
+status=check_palindrome("eye")
 '''
-
 
 
 # Q.4) 9 is a Kaprekar number since 9 ^ 2 = 81 and 8 + 1 = 9, 297 is also Kaprekar number since 297 ^ 2 = 88209 and 88 + 209 = 297. 
@@ -114,7 +114,7 @@ puts (find_occurrence(string1, "RUBY"))
 '''
 def find_position(string1, sub_string)	
 	x = string1.index(sub_string)
-	while x >= 0
+	while x
 		puts x
 		x = string1.index(sub_string,x+1)
 	end
@@ -135,8 +135,6 @@ def str_recurse(i,string1)
 	if(i<len)
 		puts arr[i]
 		str_recurse(i+1,string1)
-	else
-		return 0
 	end
 end
 
