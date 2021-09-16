@@ -256,16 +256,18 @@ puts remove_html(string1)
 # Q.16) Print the 'RUBY' word from string 1 by traversing it using string functions.
 # Answer -->
 
-"""
+'''
 def str_travers(string1)
-	string1.scan(/[\w']+/) do |word| 
-	 	if word.eql? 'RUBY'
-			puts word
-	 	end
-	 end
+	string1.split(' ').each { |i| 
+	if i=="RUBY"
+    		puts i
+	end
+	}
 end
+
 str_travers(string1)
-"""
+'''
+
 
 
 
@@ -351,33 +353,6 @@ str_travers([2, 3, 5, 1])
 # Q. 22) Write a program for fuel indication.
 #        Ex: 0 -> Out of fuel, 1-10 -> Low, Please fill, 11-30 -> Good for now, 31-50 -> Almost Full, > 50 -> Full.
 # Answer -->
-
-'''
-def check_fual(i)
-	if i==0
-		return "Out of fuel"
-	end
-
-	if i>=1 && i<=10
-		return "Low, Please fill"
-	end
-
-	if i>=11 && i<=30
-		return "Good for now"
-	end
-
-	if i>=31 && i<50
-		return "Almost Full"
-	end
-
-	if i==50
-		return "Full"
-	end
-end
-
-puts check_fual(50)
-'''
-
 
 '''
 def check_fual(i)
