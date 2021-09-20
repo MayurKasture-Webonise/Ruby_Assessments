@@ -1,0 +1,64 @@
+-------------------------------------------------------------------------------------------------------------------------------------------
+Q. Create crud using Mongodb.
+
+
+-- create db ----
+use webo_emp;
+
+
+---------------------------------------------------------collection department-------------------------------------------------------------
+
+
+-------create collection --------
+db.createCollection("department");
+
+
+-- insert--
+db.department.insertMany([{d_id:1,d_name:"HR"}, {d_id:2, d_name:"Marketing"}, {d_id:3, d_name:"sales"},{d_id:4,d_name:"Operations"}]);
+
+
+-------read----------
+db.department.find();
+
+
+--------------delete--------------
+db.department.deleteOne({d_id:3});
+
+
+--------------------------update------------------------------
+ db.department.updateOne({d_id:4},{$set : {d_name:"Finance"}})
+
+
+
+---------------------------------------------------------collection employee---------------------------------------------------------------
+
+
+-------create collection--------
+db.createCollection("employee");
+
+
+------------insert--------------
+db.employee.insertOne({e_id:1, e_name:"Suyog More", e_email:"suyog12@gmail.com", e_contact:"8595695695", e_salary:"2000", e_gender:"male", e_joining_date:"2019-10-20", e_bod:"1998-11-12", d_id:1});
+db.employee.insertOne({e_id:2, e_name:"Harish dhonde", e_email:"harishde@gmail.com", e_contact:"70989562536", e_salary:"25000", e_gender:"male", e_joining_date:"2020-11-05", e_bod:"1994-03-05", d_id:4});
+
+
+-------read-------
+db.employee.find();
+
+
+-------------delete------------
+db.employee.deleteOne({e_id:2});
+
+
+-----------------------------------------update----------------------------------
+ db.employee.updateOne({e_email:"suyog12@gmail.com"},{$set : {e_salary:"35000"}});
+
+
+---------------------index-------------------------
+db.employee.createIndex({"e_name":1, "e_email":1});
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
