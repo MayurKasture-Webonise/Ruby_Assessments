@@ -27,35 +27,56 @@ my_lam.call
 # Q.2) Write a class in ruby which represents a Company. Add constructors, 
 # high level private and public methods which suit the company chores (eg: divisions in the company, 
 # number of employees in each division etc).
+
+
+module Modl
+  def msg
+    puts 'this is module'
+  end
+end
+
+
+
 class Company
-    def initialize(division,employees)
-      @division = division
-      @employees = employees
-    end
 
-    def division()
-        return @division
-    end
+  def initialize(c_name, modl_num, mang_date)
+    @c_name = c_name
+    @modl_num = modl_num
+    @mang_date = mang_date
+  end
 
-    def employees()
-        return @employees
-    end
-
+  def prod_detail
+  	puts "Model Number : #{@modl_num}" 
+    puts "Product Name: #{@c_name}"
+    puts "Manufacturing Year : #{@mang_date}"
+  end
+  include Modl	
 end
 
 
-class Product 
 
 
+class Product < Company
+	puts "We provide Car"
 end
 
-class Services
 
+
+
+
+
+class Servises < Company
+	def about_servises()
+		puts ""
+	end
 end
-obj1 = Company.new("A","2");
-obj2 = Company.new("B","4");
 
 
-print obj1.division()+" Division has "  + obj1.employees() + " employees \n";
-print obj2.division()+" Division has "  + obj2.employees() + " employees \n";
 
+
+
+c = Company.new("honda", 1001, 21-2-2021)
+c.msg()
+c.prod_detail()
+s = Servises.new("honde", 1001, 21-2-2910)	
+s.about_servises()
